@@ -1,4 +1,5 @@
-- [x] Change footer background color in src/assets/Footer.css to #D2B48C
-- [x] Git add the changes
-- [x] Git commit with message "Change footer color to light brown"
-- [x] Git push to GitHub
+# TODO for Database Table Creation via JSON Request
+
+- [x] Create backend/routes/setup.js with POST endpoint to accept JSON table schemas and create tables
+- [x] Update backend/server.js to include the new /api/setup route
+- [x] Test the implementation (run server and send JSON request)
