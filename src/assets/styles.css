@@ -1,12 +1,12 @@
 body {
-  background-color: #f9f7f3;
+  background-color: #f9f7e0;
 }
 .add-to-cart {
   width: 100%;
   padding: 10px;
   border: 1px solid #008000;
-  background-color: transparent;
-  color: #008000;
+  background-color: #008000;
+  color: white;
   font-size: 14px;
   cursor: pointer;
   border-radius: 4px;
@@ -15,23 +15,23 @@ body {
 }
 
 .add-to-cart:hover {
-  background-color: #e8f5e8;
+  background-color: #006600;
 }
 
 .add-to-cart.active {
-  background-color: #ff6b00;
+  background-color: #008000;
   color: white;
-  border-color: #ff6b00;
+  border-color: #008000;
 }
 
 .add-to-cart.secondary {
-  background-color: #f0f0f0;
-  color: #333;
-  border-color: #ccc;
+  background-color: #008000;
+  color: white;
+  border-color: #008000;
 }
 
 .add-to-cart.secondary:hover {
-  background-color: #e0e0e0;
+  background-color: #006600;
 }
 
 .cart-count {
