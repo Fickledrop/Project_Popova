@@ -3,7 +3,7 @@ import ProductCard from './ProductCard';
 import '../assets/BuyAgo.css';
 import { Link } from 'react-router-dom';
 
-const BuyAgo = ({ toggleFavorite, isFavorite }) => {
+const BuyAgo = ({ onProductClick, toggleFavorite, isFavorite }) => {
   const products = [
     {
       id: 8,
@@ -56,7 +56,7 @@ const BuyAgo = ({ toggleFavorite, isFavorite }) => {
               price={product.price}
               title={product.title}
               rating={product.rating}
-              onAddToCart={() => console.log('В корзину:', product.title)}
+              onAddToCart={() => onProductClick?.(product)}
               onToggleFavorite={() => toggleFavorite(product)}
               isFavorite={isFavorite(product)}
             />

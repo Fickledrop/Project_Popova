@@ -558,6 +558,27 @@ function App() {
     return favorites.some(p => p.id === product.id);
   };
 
+  //Функция добавления в корзину
+  const addToCart = (product) => {
+    const cartItem = {
+      id: product.id,
+      image: product.image,
+      title: product.title,
+      price: parseFloat(product.price.replace(',', '.')),
+      discount: product.discount || null,
+      quantity: 1,
+    };
+    const savedCart = localStorage.getItem('cart');
+    let cart = savedCart ? JSON.parse(savedCart) : [];
+    const existingIndex = cart.findIndex(p => p.id === product.id);
+    if (existingIndex !== -1) {
+      cart[existingIndex].quantity += 1;
+    } else {
+      cart.push(cartItem);
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+  };
+
   return (
     <Router>
       <div className="App">
@@ -593,7 +614,7 @@ function App() {
                               originalPrice={product.originalPrice}
                               title={product.title}
                               rating={product.rating}
-                              onAddToCart={() => console.log('В корзину:', product.title)}
+                              onAddToCart={() => addToCart(product)}
                               onToggleFavorite={() => toggleFavorite(product)}
                               isFavorite={isFavorite(product)}
                             />
@@ -603,7 +624,7 @@ function App() {
                               price={product.price}
                               title={product.title}
                               rating={product.rating}
-                              onAddToCart={() => console.log('В корзину:', product.title)}
+                              onAddToCart={() => addToCart(product)}
                               onToggleFavorite={() => toggleFavorite(product)}
                               isFavorite={isFavorite(product)}
                             />
@@ -614,9 +635,9 @@ function App() {
                   </div>
                 ) : (
                   <>
-                    <Promotions onProductClick={() => { }} toggleFavorite={toggleFavorite} isFavorite={isFavorite} />
-                    <News onProductClick={() => { }} toggleFavorite={toggleFavorite} isFavorite={isFavorite} />
-                    <BuyAgo onProductClick={() => { }} toggleFavorite={toggleFavorite} isFavorite={isFavorite} />
+                    <Promotions onProductClick={addToCart} toggleFavorite={toggleFavorite} isFavorite={isFavorite} />
+                    <News onProductClick={addToCart} toggleFavorite={toggleFavorite} isFavorite={isFavorite} />
+                    <BuyAgo onProductClick={addToCart} toggleFavorite={toggleFavorite} isFavorite={isFavorite} />
                     <SpecialOffersSection />
                     <OurStores />
                     <ArticlesSection />
