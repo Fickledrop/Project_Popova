@@ -1,4 +1,4 @@
 - [x] Change footer background color in src/assets/Footer.css to #D2B48C
-- [ ] Git add the changes
-- [ ] Git commit with message "Change footer color to light brown"
-- [ ] Git push to GitHub
+- [x] Git add the changes
+- [x] Git commit with message "Change footer color to light brown"
+- [x] Git push to GitHub
